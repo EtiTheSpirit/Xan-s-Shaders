@@ -1,5 +1,5 @@
 # About
-The Hue Shifter Shader is a shader designed to merge as many hue shift controls into a single material as possible (with as little overhead as possible). It is designed for those that want maximum customizability on their avatars without wasting material slots on the same texture in 2+ different places. 
+The Color Shifter Shader is a shader designed to merge as many color shift controls (full HSV) into a single material as possible (with as little overhead as possible). It is designed for those that want maximum customizability on their avatars without wasting material slots on the same texture in 2+ different places. 
 
 This operates its hue shifts based on the Shift Key. This is a texture using up to 8 unique colors (mentioned below). It should have the same UV map as the diffuse texture, and tells the shader what areas to shift, and what color option it should use when shifting.
 
