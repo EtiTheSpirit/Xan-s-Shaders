@@ -1,0 +1,11 @@
+TECHNICAL DETAILS:
+
+There's a few things that are odd in the shader. This document will briefly brush over some foreseeable questions:
+
+Q: wtf is float0Or1ToUInt?
+A: This is an optimization with GPU's knack for bulking stuff together. Without this (and just doing a uint cast on each component), it uses the ftou instruction 3 times, which has to worry about rounding and whatnot. My optimization causes the GPU to do RSH 29 on the *entire register* (that is, all 3 values at once) which completely skips the floating point to integer conversion step and just spits out a uint without really much thought. Thing is, the last time I wrote a shader was years and years ago, and it was a fragment shader only. My knowledge of a GPU is based on intuition of my time as a reverse engineer dealing with x86, which is a damned sight different than D3D code.
+
+Still, the other method is lightning fast and we're saving probably a matter of a few nanoseconds/microseconds with this method, and my method opens the door for nasty problems if you break the rules as mentioned in README. Effectively, I got bored and wanted to tinker with some mathy stuffs, and I'm sure this hurts nothing otherwise. If you know better than I do, say something!
+
+Q: Why the references to BLACK (static const fixed3 (0,0,0)) in the array?
+A: For coverage. The compiler is smart, so when it does its check for array index, it only checks the indices that are populated, even if the BLACK values create "holes" in the array, which is really cool. (n.b. I checked the bytecode to test this claim). Better to index 0 rather than an out of range memory address which bricks the shader in the off chance that a key texture has illegal colors.
