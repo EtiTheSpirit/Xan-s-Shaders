@@ -16,6 +16,7 @@ Before you begin, there is important information to know about each piece:
 - #FF00FF
 - #00FFFF
 - #FFFFFF
+
 These are the only allowed colors. Not using these will brick the shader.
 
 4. Color shift keys are in HSV, apply to the texture multiplicatively, and use Vector format due to some rendering jargon (that is, you don't see a color picker in the material editor, just four textboxes). The last value (W) is not used, only the first three. While this makes editing the colors by hand kind of hard, it makes it trivially easy to animate for expressions and we don't need to worry about preventing gamma correction, because this is just a color change. The texture itself already has gamma correction.
