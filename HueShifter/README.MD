@@ -1,10 +1,11 @@
-Thanks for trying my shader! Its a bit of a glorified tech demo as I mentioned (ideally), so just know that its capabilities are sketchy.
+# About
+The Hue Shifter Shader is a shader designed to merge as many hue shift controls into a single material as possible (with as little overhead as possible). It is designed for those that want maximum customizability on their avatars without wasting material slots on the same texture in 2+ different places. 
 
 This operates its hue shifts based on the Shift Key. This is a texture using up to 8 unique colors (mentioned below). It should have the same UV map as the diffuse texture, and tells the shader what areas to shift, and what color option it should use when shifting.
 
 An image example of the old version of this shader I made for myself is here: https://imgur.com/a/VTFlmMl
 
-Before you begin, there is important information to know about each piece:
+## Important Stuff (If you don't read this, you probably won't even be able to use it)
 1. Diffuse texture does not support alpha. This is an opaque shader. This may change in a future update.
 2. Specular/Smoothness/Emission is a multiplied mask, not a color of its own. Sorry. Makes it easy to pack data into textures by channel.
 3. **The Key texture MUST STRICTLY ONLY *EVER* USE BLACK, RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW, AND/OR WHITE WITH FULL BRIGHTNESS (HEX CODES BELOW).** One of this shader's optimizations will cause unpredictable and buggy behavior if anything other than these are used.
