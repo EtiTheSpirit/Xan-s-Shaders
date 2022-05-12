@@ -1,0 +1,15 @@
+Hi!
+
+If you are looking to use the Dark Reality shader, there are some key points to note:
+#1: This shader has a "jitter" effect to it, that is, it shakes the projections behind the shader. This does NOT show in the editor unless you are running the game or simulation!
+#2: This shader makes use of a grab pass. This means that you should...
+- MOST IDEALLY: Only have one material using this shader, and share that material where possible.
+- ABSOLUTELY: Enable GPU instancing on your material using this shader.
+- NOT: Use a bunch of materials with this shader.
+
+Grab passes are not cheap. Remember, as our lord and savior Gabe Newell once said, "These things... They take time." - And remember: More time = More lag.
+
+Reckless use of shaders like this is one of the many reasons as to why VRChat lags. 
+Do not be the halfwit in the lobby with the laggy avatar that proceeds to complain about how shitty the game is. It's the virtual equivalent of shooting someone and then calling the cops for a murder. You can't complain about it if you are the one responsible. Offense intended.
+
+Enjoy!
